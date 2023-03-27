@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_application_1/screens/savedSuccessfully.dart';
 import 'package:flutter_application_1/fonts/font.dart';
 
@@ -11,7 +9,7 @@ class AddStack extends StatefulWidget {
   State<AddStack> createState() => _AddStackState();
 }
 
-var dropdownvalue = ' Male ';
+var dropdownvalue1 = ' Male ';
 bool isLouding = false;
 // List of items in our dropdown menu
 var Gender = [
@@ -19,7 +17,7 @@ var Gender = [
   ' Female ',
 ];
 
-var Departments = ' Bones ';
+var departments = ' Bones ';
 // List of items in our dropdown menu
 var departmentname = [
   ' Bones ',
@@ -229,7 +227,7 @@ class _AddStackState extends State<AddStack> {
                                         dropdownColor: const Color.fromARGB(
                                             255, 31, 43, 108),
                                         // Initial Value
-                                        value: dropdownvalue,
+                                        value: dropdownvalue1,
                                         style: SafeGoogleFont(
                                           'Work Sans',
                                           fontSize: 16,
@@ -254,7 +252,7 @@ class _AddStackState extends State<AddStack> {
                                         // change button value to selected value
                                         onChanged: (String? newValue) {
                                           setState(() {
-                                            dropdownvalue = newValue!;
+                                            dropdownvalue1 = newValue!;
                                           });
                                         },
                                       ),
@@ -439,22 +437,17 @@ class _AddStackState extends State<AddStack> {
                                         isExpanded: true,
                                         dropdownColor: const Color.fromARGB(
                                             255, 31, 43, 108),
-                                        // Initial Value
-                                        value: departmentname.first,
+                                        value: departments,
                                         style: SafeGoogleFont(
                                           'Work Sans',
                                           fontSize: 16,
                                           fontWeight: FontWeight.w400,
                                           color: const Color(0xfffcfefe),
                                         ),
-
-                                        // Down Arrow Icon
                                         icon: const Icon(
                                           Icons.keyboard_arrow_down,
                                           color: Colors.white,
                                         ),
-
-                                        // Array list of items
                                         items:
                                             departmentname.map((String items) {
                                           return DropdownMenuItem(
@@ -462,11 +455,9 @@ class _AddStackState extends State<AddStack> {
                                             child: Text(items),
                                           );
                                         }).toList(),
-                                        // After selecting the desired option,it will
-                                        // change button value to selected value
-                                        onChanged: (String? newValue) {
+                                        onChanged: (String? value) {
                                           setState(() {
-                                            dropdownvalue = newValue!;
+                                            departments = value!;
                                           });
                                         },
                                       ),
